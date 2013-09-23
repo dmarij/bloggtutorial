@@ -7,6 +7,10 @@
   <% end %>
 </p>
 
+<% if @article.image.exists? %>
+<%= image_tag @article.image.url(:thumb) %><br/>
+<% end %>
+
 <h3>Comments (<%= @article.num_of_comments %>)</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
 <%= render partial: 'comments/form' %>
